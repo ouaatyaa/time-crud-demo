@@ -24,6 +24,7 @@ async function Account({ params }: { params: { id: string } }) {
       select: { id: true, startsOn: true, description: true, hours: true },
       where: { accountId: params.id },
     });
+    console.log(workSessions);
   } catch (error) {
     console.error(error);
   }

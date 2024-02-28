@@ -11,13 +11,13 @@ export const createAccount = async (rawData: FormData) => {
   const res = CreateAccountSchema.safeParse({
     name: rawData.get("name"),
   });
-  console.log(res);
+  // console.log(res);
   if (res.success) {
     const data = res.data;
     const account = await db.account.create({
       data,
     });
-    console.log(account);
+    // console.log(account);
     redirect(`/accounts/${account.id}`);
   } else {
     console.log(res.error.message);
